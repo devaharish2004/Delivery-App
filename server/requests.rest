@@ -1,0 +1,89 @@
+//auth
+POST http://localhost:3001/auth/invTeamRegister/
+Content-Type: application/json
+
+{
+    "name" : "Devaharish M",
+    "email" : "devaharishm@gmail.com",
+    "password" : "hello"
+}
+
+###
+POST http://localhost:3001/auth/dlvTeamRegister/
+Content-Type: application/json
+
+{
+    "name" : "Devaharish M",
+    "email" : "devaharishm@gmail.com",
+    "password" : "hello"
+}
+
+### 
+POST http://localhost:3001/auth/invTeamLogin/
+Content-Type: application/json
+
+{
+    "email" : "devaharishm@gmail.com",
+    "password" : "hello"
+}
+
+###
+POST http://localhost:3001/auth/dlvTeamLogin/
+Content-Type: application/json
+
+{
+    "email" : "devaharishm@gmail.com",
+    "password" : "hello"
+}
+
+
+// inventory management
+
+###
+GET http://localhost:3001/inventory
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzA5MDk3MzU0LCJleHAiOjE3MDkwOTczODR9.H0lftpYqKwdVTnLMQX4lTDvMepeKLHHA_jwqWdmDsPc
+
+###
+POST http://localhost:3001/inventory/add
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+    "name" : "HP 15s Ryzen 9 5500U",
+    "category" : "Laptops",
+    "sender_mobile_no" : "9842612345",
+    "receiver_mobile_no" : "1234567890",
+    "delivery_address" : "Chennai Institute of Technology, Kundrathur, Chennai - 69",
+    "taken_for_delivery" : false,
+    "expected_delivery_date" : "2024-03-15",
+    "expiry_date" : null, 
+    "damaged" : false,
+    "agent_id" : null
+}
+
+###
+PUT http://localhost:3001/inventory/update/2
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+    "name" : "HP 15s Ryzen 5 5500U",
+    "category" : "Laptops",
+    "sender_mobile_no" : "9842612346",
+    "receiver_mobile_no" : "1234567890",
+    "delivery_address" : "Chennai Institute of Technology, Kundrathur, Chennai - 69",
+    "taken_for_delivery" : false,
+    "expected_delivery_date" : "2024-03-15",
+    "expiry_date" : null, 
+    "damaged" : false,
+    "agent_id" : null
+} 
+
+###
+DELETE http://localhost:3001/inventory/delete/3
+Content-Type: application/json
+Authorization: Bearer token
+
+
+
