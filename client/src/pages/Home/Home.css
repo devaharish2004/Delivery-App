@@ -1,0 +1,36 @@
+.home_page {
+    height : 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    width : 25%;
+    border-radius : 12px;
+    background-color: black;
+}
+
+.home h2 {
+    color : white;
+    margin : 20px 0px;
+}
+
+.home_link {
+    text-decoration: none;
+    padding : 12px;
+    color : white;
+    margin : 20px 0px;
+    background-color: blue;
+    border-radius: 12px;
+}
+
+.home_link:hover {
+    opacity: 0.8;
+}
