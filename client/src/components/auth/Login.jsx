@@ -1,15 +1,18 @@
 import React from 'react'
 import axios from "axios";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import './Login.css';
+import { TokenContext } from '../../contexts/TokenContext';
+
 
 const Login = ({ team }) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
     const navigate = useNavigate();
+    const { setToken } = useContext(TokenContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,9 +20,12 @@ const Login = ({ team }) => {
         if(team === "Inventory") {
             axios.post("http://localhost:3001/auth/invTeamLogin/", { email, password })
             .then(response => {
+                
                 console.log(response.data);
+                setToken(response.data.token);
                 toast.success("Successfully Logged In");
                 navigate('/inventory');
+
               })
               .catch(error => {
                 const status = error.response.status;
@@ -42,6 +48,7 @@ const Login = ({ team }) => {
             axios.post("http://localhost:3001/auth/dlvTeamLogin/", { email, password })
             .then(response => {
                 console.log(response.data);
+                setToken(response.data.token);
                 toast.success("Successfully Logged In");
                 navigate('/delivery');
               })
