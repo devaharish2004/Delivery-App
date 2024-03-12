@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useContext } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Home from './pages/Home/Home.jsx';
 import Login from './components/auth/Login.jsx';
@@ -11,6 +11,7 @@ import './App.css';
 
 
 const App = () => {
+
   return (
       <TokenProvider>
         <Router>
@@ -21,7 +22,7 @@ const App = () => {
             <Route path = "/dlvTeam/signup" element = { <SignUp team = "Delivery" /> } />
             <Route path = "/invTeam/login" element = { <Login team = "Inventory" />} />
             <Route path = "/dlvTeam/login" element = { <Login team = "Delivery" />} />    
-            <Route path = "/inventory" element = { <Inventory/> } />    
+            <Route path = "/inventory" element = { <Inventory/> }  />   
             <Route path = "/delivery" element = { <Delivery/> } />  
           </Routes>
         </Router>

@@ -35,7 +35,6 @@ const SignUp = ({ team }) => {
         } else if(team === "Delivery"){
             axios.post("http://localhost:3001/auth/dlvTeamRegister/", { name, email, password })
             .then((response) => {
-                console.log(response.data);
                 toast.success("Successfully Registered. Please Log In");
                 navigate('/dlvTeam/login');
             })

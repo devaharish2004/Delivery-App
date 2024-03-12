@@ -20,9 +20,8 @@ const Login = ({ team }) => {
         if(team === "Inventory") {
             axios.post("http://localhost:3001/auth/invTeamLogin/", { email, password })
             .then(response => {
-                
-                console.log(response.data);
                 setToken(response.data.token);
+                localStorage.setItem('token', response.data.token);
                 toast.success("Successfully Logged In");
                 navigate('/inventory');
 
@@ -47,8 +46,8 @@ const Login = ({ team }) => {
         else {
             axios.post("http://localhost:3001/auth/dlvTeamLogin/", { email, password })
             .then(response => {
-                console.log(response.data);
                 setToken(response.data.token);
+                localStorage.setItem('token', response.data.token);
                 toast.success("Successfully Logged In");
                 navigate('/delivery');
               })
