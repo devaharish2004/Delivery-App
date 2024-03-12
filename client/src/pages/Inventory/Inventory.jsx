@@ -16,9 +16,11 @@ const Inventory = () => {
     }
   }, [token]);
 
+  
+
   return (
     <div>
-      <h1>Inventory</h1>
+      <h1>Welcome </h1>
     </div>
   )
 }
