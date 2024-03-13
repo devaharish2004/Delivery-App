@@ -6,14 +6,12 @@ import Login from './components/auth/Login.jsx';
 import SignUp from './components/auth/SignUp.jsx';
 import Inventory from './pages/Inventory/Inventory.jsx';
 import Delivery from './pages/Delivery/Delivery.jsx';
-import { TokenProvider } from './contexts/TokenContext.jsx';
 import './App.css';
 
 
 const App = () => {
 
   return (
-      <TokenProvider>
         <Router>
           <Toaster/>
           <Routes>
@@ -26,7 +24,6 @@ const App = () => {
             <Route path = "/delivery" element = { <Delivery/> } />  
           </Routes>
         </Router>
-      </TokenProvider>
   )
 }
 

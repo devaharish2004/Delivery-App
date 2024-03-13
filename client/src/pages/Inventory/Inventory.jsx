@@ -1,26 +1,12 @@
-import React, { useContext, useEffect } from 'react'
-import { TokenContext } from '../../contexts/TokenContext'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 
-const Inventory = () => {
-
-  const { token } = useContext(TokenContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-
-    if(token === "")
-    {
-      navigate('/invTeam/login');
-    }
-  }, [token]);
-
-  
+const Inventory = () => {  
 
   return (
     <div>
-      <h1>Welcome </h1>
+      <h1> Inventory </h1>
     </div>
   )
 }
