@@ -34,7 +34,7 @@ const invTeamLogin = async (req, res) => {
             if(compare) {
 
                 //token generation
-                const token = jwt.sign({id : employee.id, team : "inventory_team"}, process.env.SECRET, {expiresIn : '30s'});
+                const token = jwt.sign({id : employee.id, team : "inventory_team"}, process.env.SECRET, {expiresIn : '1m'});
 
                 delete employee.password;
 
