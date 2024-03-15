@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import { DataGrid } from '@mui/x-data-grid';
 import axios from "axios"
+
+//Material UI
+import { DataGrid } from '@mui/x-data-grid';
+
+
 import './Inventory.css'
 import columns from '../../data/inventoryCols.js';
+import AddModal from '../../components/Inventory/AddModal.jsx';
+import RefineData from '../../components/Inventory/RefineData.jsx';
 
 
 const Inventory = () => {  
+
+  //Hooks
 
   const [ goods, setGoods ] = useState([]);
 
@@ -16,8 +24,8 @@ const Inventory = () => {
     getGoods();
   }, [goods])
 
- 
-
+  //event-handlers
+  // to get all the goods
   const getGoods = async () => {
     const token = localStorage.getItem('token');
     await axios.get("http://localhost:3001/inventory", {
@@ -27,7 +35,7 @@ const Inventory = () => {
       }
     })
     .then((response) => {
-      const data = response.data.message;
+      const data = RefineData(response.data.message);
       setGoods(data);
       
     })
@@ -36,6 +44,7 @@ const Inventory = () => {
       navigate('/invTeam/login');
     })
   } 
+
 
   return (
     <div className = "inventory">
@@ -52,6 +61,15 @@ const Inventory = () => {
           pageSizeOptions={[5, 10]}
         />
       </div>
+      
+   
+      <button type="button" className="btn btn-primary btn_add" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add a New Inventory Item
+      </button>
+
+     
+      <AddModal/>
+
     </div>
   )
 }

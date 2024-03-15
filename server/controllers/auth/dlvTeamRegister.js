@@ -24,7 +24,7 @@ const dlvTeamRegister = async (req, res) => {
             const query = {
                 text : "INSERT INTO dlvteam (name, email, password) VALUES ($1, $2, $3)",
                 values : [name, email, hashedPassword],
-            };
+            }; 
     
             await client.query(query);
 

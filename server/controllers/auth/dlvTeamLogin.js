@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 const dlvTeamLogin = async (req, res) => {
     
-    try {
+    try { 
 
         const { email, password } = req.body;
 
@@ -33,11 +33,11 @@ const dlvTeamLogin = async (req, res) => {
             if(compare) {
 
                 //token generation
-                const token = jwt.sign({id : employee.id, team : "delivery_team"}, process.env.SECRET, {expiresIn : '1m'});
+                const token = jwt.sign({id : employee.id, team : "delivery_team"}, process.env.SECRET, {expiresIn : '2m'});
 
                 delete employee.password;
-
-                res.status(200).json({ token, employee });
+ 
+                res.status(200).json({ token, employee }); 
 
             }   
             else {

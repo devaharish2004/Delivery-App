@@ -1,3 +1,10 @@
+.inventory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 20px;
+}
+
 .inventory h1 {
     width : 100%;
     text-align : center;
@@ -6,4 +13,8 @@
 
 .goods {
     width : 100%;
+}
+
+.btn_add {
+    width : 25%;
 }

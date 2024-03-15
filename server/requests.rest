@@ -42,12 +42,12 @@ Content-Type: application/json
 ###
 GET http://localhost:3001/inventory
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzEwMzA4ODY5LCJleHAiOjE3MTAzMDg4OTl9.yTJBELazDQdaVRwn7pM4djOUH_zt49ht5y-wbAdYUQ8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzEwNDc3MDg3LCJleHAiOjE3MTA0NzcyMDd9.inbTzTWLDVu7S_e60CNDNk-Id63vhvHm3gogWEq8t_c
 
 ###
 POST http://localhost:3001/inventory/add
 Content-Type: application/json
-Authorization: Bearer token
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzEwNDgwODA0LCJleHAiOjE3MTA0ODA5MjR9.0cc7Wf7NQlZl-JYPMBwuXS--shnNgmRE7Zht0ip9A-4
 
 {
     "name" : "HP 15s Ryzen 9 5500U",

@@ -5,3 +5,15 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 })
+
+// import { resolve } from 'path'
+
+// export default {
+//   root: resolve(__dirname, 'src'),
+//   build: {
+//     outDir: '../dist'
+//   },
+//   server: {
+//     port: 8080
+//   }
+// }
