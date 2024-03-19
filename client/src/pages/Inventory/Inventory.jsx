@@ -5,7 +5,6 @@ import axios from "axios"
 //Material UI
 import { DataGrid } from '@mui/x-data-grid';
 
-
 import './Inventory.css'
 import columns from '../../data/inventoryCols.js';
 import AddModal from '../../components/Inventory/AddModal.jsx';
@@ -22,7 +21,7 @@ const Inventory = () => {
 
   useEffect(() => {
     getGoods();
-  }, [goods])
+  }, []);
 
   //event-handlers
   // to get all the goods
@@ -40,6 +39,7 @@ const Inventory = () => {
       
     })
     .catch((err) => {
+      console.log(err);
       if(token) localStorage.removeItem('token');
       navigate('/invTeam/login');
     })
@@ -58,7 +58,7 @@ const Inventory = () => {
               paginationModel: { page: 0, pageSize: 5 },
             },
           }}
-          pageSizeOptions={[5, 10]}
+          pageSizeOptions={[5, 10, 15]}
         />
       </div>
       
@@ -68,7 +68,7 @@ const Inventory = () => {
       </button>
 
      
-      <AddModal/>
+      <AddModal setGoods = {setGoods}/>
 
     </div>
   )

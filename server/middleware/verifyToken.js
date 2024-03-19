@@ -10,7 +10,7 @@ const verifyToken = (allowedTeams) => async (req, res, next) => {
 
         if(!token)
         {
-            res.status(401).json({message : "Unauthorized"});
+            return res.status(401).json({message : "Unauthorized"});
         }
 
         else
@@ -24,8 +24,9 @@ const verifyToken = (allowedTeams) => async (req, res, next) => {
                 req.user_id = user.id;
     
                 req.user_team = user.team;
-    
+                
                 next();
+
             });
         }        
 

@@ -10,6 +10,8 @@ const getAllGoods = async (req, res) => {
 
         const result = await client.query(query);
 
+        client.release();
+
         res.status(200).json({ message : result.rows });
 
     } catch (err) {

@@ -42,21 +42,21 @@ Content-Type: application/json
 ###
 GET http://localhost:3001/inventory
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzEwNDc3MDg3LCJleHAiOjE3MTA0NzcyMDd9.inbTzTWLDVu7S_e60CNDNk-Id63vhvHm3gogWEq8t_c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzEwODU0MTUzLCJleHAiOjE3MTA4NTQyNzN9.w9eOfTRK-PucDNO4EA9y3HmQoaq0ipp_HjrnGZJgEpE
 
 ###
 POST http://localhost:3001/inventory/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzEwNDgwODA0LCJleHAiOjE3MTA0ODA5MjR9.0cc7Wf7NQlZl-JYPMBwuXS--shnNgmRE7Zht0ip9A-4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidGVhbSI6ImludmVudG9yeV90ZWFtIiwiaWF0IjoxNzEwODU0MTUzLCJleHAiOjE3MTA4NTQyNzN9.w9eOfTRK-PucDNO4EA9y3HmQoaq0ipp_HjrnGZJgEpE
 
 {
-    "name" : "HP 15s Ryzen 9 5500U",
-    "category" : "Laptops",
-    "sender_mobile_no" : "9842612345",
-    "receiver_mobile_no" : "1234567890",
-    "delivery_address" : "Chennai Institute of Technology, Kundrathur, Chennai - 69",
+    "name" : "Redmi Note 12C",
+    "category" : "Mobiles",
+    "sender_mobile_no" : "12345",
+    "receiver_mobile_no" : "12345",
+    "delivery_address" : "Chennai",
     "taken_for_delivery" : false,
-    "expected_delivery_date" : "2024-03-15",
+    "expected_delivery_date" : "2024-03-18",
     "expiry_date" : null, 
     "damaged" : false,
     "agent_id" : null
