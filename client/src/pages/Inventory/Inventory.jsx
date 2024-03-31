@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import toast from 'react-hot-toast';
 
 //Material UI
 import { DataGrid } from '@mui/x-data-grid';
 
 import './Inventory.css'
-import columns from '../../data/inventoryCols.js';
+import columns from '../../data/inventoryCols.jsx';
 import AddModal from '../../components/Inventory/AddModal.jsx';
 import RefineData from '../../components/Inventory/RefineData.jsx';
 
@@ -44,6 +45,29 @@ const Inventory = () => {
       navigate('/invTeam/login');
     })
   } 
+  
+  const handleUpdate = (id) => {
+    
+  }
+  
+  const handleDelete = async (id) => {
+    const token = localStorage.getItem("token");
+    await axios.delete(`http://localhost:3001/inventory/delete/${id}`, {
+      headers : {
+        "Content-Type" : "application/json",
+        "Authorization" : `Bearer ${token}`
+      }
+    })
+    .then((response) => {
+      toast.success("Good has been deleted successfully");
+      setGoods(prevGoods => prevGoods.filter(good => good.id !== id));
+    })
+    .catch((err) => {
+      console.log(err);
+      if(token) localStorage.removeItem("token");
+      navigate('/invTeam/login');
+    })
+  }
 
 
   return (
@@ -52,7 +76,7 @@ const Inventory = () => {
       <div className='goods'>
         <DataGrid
           rows={goods}
-          columns={columns}
+          columns={columns(handleUpdate, handleDelete)}
           initialState={{
             pagination: {
               paginationModel: { page: 0, pageSize: 5 },

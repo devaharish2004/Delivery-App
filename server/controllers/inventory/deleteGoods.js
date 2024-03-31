@@ -15,6 +15,8 @@ const deleteGoods = async (req, res) => {
 
         await client.query(query);
 
+        client.release();
+
         res.status(200).json({ message : "Good has been deleted successfully " });
 
     } catch (err) {
