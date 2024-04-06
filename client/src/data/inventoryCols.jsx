@@ -12,7 +12,7 @@ const columns = (handleUpdate, handleDelete) => [
       headerName : "Edit",
       width : 150,
       renderCell : (params) => (
-        <button className = "btn btn-primary" onClick = {() => handleUpdate(params.row.id)} > Edit </button>
+        <button className = "btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal" onClick={() => handleUpdate(params.row.id)}> Edit </button>
       ),
     },
     {

@@ -10,6 +10,7 @@ import './Inventory.css'
 import columns from '../../data/inventoryCols.jsx';
 import AddModal from '../../components/Inventory/AddModal.jsx';
 import RefineData from '../../components/Inventory/RefineData.jsx';
+import UpdateModal from '../../components/Inventory/UpdateModal.jsx';
 
 
 const Inventory = () => {  
@@ -17,6 +18,7 @@ const Inventory = () => {
   //Hooks
 
   const [ goods, setGoods ] = useState([]);
+  const [selectedRow, setSelectedRow] = useState(-1);
 
   const navigate = useNavigate();
 
@@ -37,6 +39,7 @@ const Inventory = () => {
     .then((response) => {
       const data = RefineData(response.data.message);
       setGoods(data);
+      console.log(data);
       
     })
     .catch((err) => {
@@ -45,10 +48,6 @@ const Inventory = () => {
       navigate('/invTeam/login');
     })
   } 
-  
-  const handleUpdate = (id) => {
-    
-  }
   
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
@@ -67,6 +66,10 @@ const Inventory = () => {
       if(token) localStorage.removeItem("token");
       navigate('/invTeam/login');
     })
+  }
+
+  const handleUpdate = (id) => {
+    setSelectedRow(id);
   }
 
 
@@ -94,8 +97,47 @@ const Inventory = () => {
      
       <AddModal setGoods = {setGoods}/>
 
+      <UpdateModal goods = {goods} id = {selectedRow} setGoods = {setGoods} />
+
     </div>
   )
 }
 
 export default Inventory
+
+/*
+SAMPLE REFINED DATA
+agent_id
+: 
+"Not Specified"
+category
+: 
+"Laptops"
+damaged
+: 
+"No"
+delivery_address
+: 
+"Theni"
+expected_delivery_date
+: 
+"2024-02-01"
+expiry_date
+: 
+"Not Specified"
+id
+: 
+20
+name
+: 
+"MSI Sword"
+receiver_mobile_no
+: 
+"6651321351"
+sender_mobile_no
+: 
+"5546562"
+taken_for_delivery
+: 
+"No"
+*/
