@@ -2,8 +2,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap : 20px;
 }
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding : 20px;
+    width : 100%;
+    
+}
+
+.header h1 {
+    width : 90%;
+}
+
+.header button {
+    width : 10%;
+}
+
+
 
 .inventory h1 {
     width : 100%;

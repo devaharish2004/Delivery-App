@@ -31,7 +31,6 @@ const UpdateModal = ({goods, id, setGoods}) => {
         navigate('/invTeam/login');
       }
       else {
-        console.log(formData);
         axios.put(`http://localhost:3001/inventory/update/${id}`, formData, {
           headers : {
             "Content-Type" : "application/json",

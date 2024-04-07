@@ -39,7 +39,6 @@ const Inventory = () => {
     .then((response) => {
       const data = RefineData(response.data.message);
       setGoods(data);
-      console.log(data);
       
     })
     .catch((err) => {
@@ -72,10 +71,20 @@ const Inventory = () => {
     setSelectedRow(id);
   }
 
+  const handleLogOut = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    navigate("/invTeam/login");
+  }
+
 
   return (
     <div className = "inventory">
-      <h1> Inventory Details </h1>
+      <div className='header'>
+        <h1> Inventory Details </h1>
+        <button className = "btn btn-danger" onClick={handleLogOut}>Log Out</button>
+      </div>
+
       <div className='goods'>
         <DataGrid
           rows={goods}
