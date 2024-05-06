@@ -20,7 +20,7 @@ const columns = (handleUpdate, handleDelete) => [
       headerName : "Delete",
       width : 150,
       renderCell : (params) => (
-        <button className="btn btn-primary" onClick = {() => handleDelete(params.row.id)} > Delete </button>
+        <button className="btn btn-danger" onClick = {() => handleDelete(params.row.id)} > Delete </button>
       ),
     },
  ]

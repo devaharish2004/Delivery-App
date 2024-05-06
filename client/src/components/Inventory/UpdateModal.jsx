@@ -60,7 +60,6 @@ const UpdateModal = ({goods, id, setGoods}) => {
   useEffect(() => {
     if(id !== -1) {
       const selectedGood = goods.filter(good => good.id === id)[0];
-      console.log(selectedGood);
       setFormData({
         id : selectedGood.id,
         name: selectedGood.name,

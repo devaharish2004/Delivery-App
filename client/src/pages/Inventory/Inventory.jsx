@@ -11,6 +11,7 @@ import columns from '../../data/inventoryCols.jsx';
 import AddModal from '../../components/Inventory/AddModal.jsx';
 import RefineData from '../../components/Inventory/RefineData.jsx';
 import UpdateModal from '../../components/Inventory/UpdateModal.jsx';
+import { CgProfile } from "react-icons/cg";
 
 
 const Inventory = () => {  
@@ -30,6 +31,7 @@ const Inventory = () => {
   // to get all the goods
   const getGoods = async () => {
     const token = localStorage.getItem('token');
+    const employee = localStorage.getItem("employee");
     await axios.get("http://localhost:3001/inventory", {
       headers : {
         "Content-Type" : "application/json",
@@ -44,6 +46,7 @@ const Inventory = () => {
     .catch((err) => {
       console.log(err);
       if(token) localStorage.removeItem('token');
+      if(employee) localStorage.removeItem("employee");
       navigate('/invTeam/login');
     })
   } 
@@ -63,6 +66,7 @@ const Inventory = () => {
     .catch((err) => {
       console.log(err);
       if(token) localStorage.removeItem("token");
+      if(employee) localStorage.removeItem("employee");
       navigate('/invTeam/login');
     })
   }
@@ -74,15 +78,26 @@ const Inventory = () => {
   const handleLogOut = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
+    localStorage.removeItem("employee");
     navigate("/invTeam/login");
+  }
+
+  const handleProfileNavigation = (e) => {
+    e.preventDefault;
+    navigate('/profile');
   }
 
 
   return (
     <div className = "inventory">
       <div className='header'>
-        <h1> Inventory Details </h1>
-        <button className = "btn btn-danger" onClick={handleLogOut}>Log Out</button>
+        <div className='heading'>
+          <h1> Inventory Details </h1>
+        </div>
+        <div className='profile' >
+          <CgProfile size={40} className='profile_pic' onClick = {handleProfileNavigation} /> 
+          <button className = "btn btn-danger" onClick={handleLogOut}>Log Out</button>
+        </div>
       </div>
 
       <div className='goods'>

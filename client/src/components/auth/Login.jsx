@@ -20,6 +20,7 @@ const Login = ({ team }) => {
             axios.post("http://localhost:3001/auth/invTeamLogin/", { email, password })
             .then(response => {
                 localStorage.setItem('token', response.data.token);
+                localStorage.setItem("employee", JSON.stringify(response.data.employee));
                 toast.success("Successfully Logged In");
                 navigate('/inventory');
 

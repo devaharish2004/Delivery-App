@@ -33,7 +33,7 @@ const dlvTeamLogin = async (req, res) => {
             if(compare) {
 
                 //token generation
-                const token = jwt.sign({id : employee.id, team : "delivery_team"}, process.env.SECRET, {expiresIn : '2m'});
+                const token = jwt.sign({id : employee.id, team : "delivery_team"}, process.env.SECRET, {expiresIn : '15m'});
 
                 delete employee.password;
  

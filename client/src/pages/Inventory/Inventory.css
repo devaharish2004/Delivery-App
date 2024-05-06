@@ -10,15 +10,22 @@
     align-items: center;
     padding : 20px;
     width : 100%;
-    
 }
 
-.header h1 {
-    width : 90%;
+.heading {
+    width : 85%;
+    text-align: center;
 }
 
-.header button {
-    width : 10%;
+.profile {
+    display: flex;
+    align-items: center;
+    width : 15%;
+    gap : 16px;
+}
+
+.profile_pic {
+    cursor: pointer;
 }
 
 
